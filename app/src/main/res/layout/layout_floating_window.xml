@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_floating_window"
+    android:layout_width="290dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_floating_window"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:elevation="12dp">
+
+    <!-- 顶部拖拽与控制栏 -->
+    <LinearLayout
+        android:id="@+id/layout_drag_header"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:background="#26FFFFFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⋮⋮"
+            android:textColor="#94A3B8"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="按住拖拽移动"
+            android:textColor="#E2E8F0"
+            android:textSize="11sp" />
+
+        <!-- 字体减小 -->
+        <TextView
+            android:id="@+id/btn_font_minus"
+            android:layout_width="26dp"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:text="A-"
+            android:textColor="#CBD5E1"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <!-- 字体放大 -->
+        <TextView
+            android:id="@+id/btn_font_plus"
+            android:layout_width="26dp"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:text="A+"
+            android:textColor="#CBD5E1"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <!-- 最小化为悬浮球 -->
+        <TextView
+            android:id="@+id/btn_minimize"
+            android:layout_width="26dp"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:text="—"
+            android:textColor="#38BDF8"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <!-- 关闭 -->
+        <TextView
+            android:id="@+id/btn_close"
+            android:layout_width="26dp"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:text="✕"
+            android:textColor="#F87171"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="?android:attr/selectableItemBackground" />
+    </LinearLayout>
+
+    <!-- 核心内容区域：支持上下滑动的文本展示区 -->
+    <ScrollView
+        android:id="@+id/scroll_view_content"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="6dp"
+        android:fadeScrollbars="false"
+        android:fillViewport="true"
+        android:isScrollContainer="true"
+        android:overScrollMode="always"
+        android:scrollbars="vertical">
+
+        <TextView
+            android:id="@+id/tv_floating_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingMultiplier="1.25"
+            android:padding="6dp"
+            android:textColor="@color/float_text"
+            android:textSize="14sp"
+            tools:text="此处显示提示文本内容。支持手指上下滑动翻阅，长文本轻松阅读。不抢占焦点，不会被检测为切屏。" />
+    </ScrollView>
+
+    <!-- 底部快捷操作栏（透明度切换、回顶部/底部、大小调节） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="4dp">
+
+        <!-- 切换透明度 -->
+        <TextView
+            android:id="@+id/btn_toggle_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="半透明"
+            android:textColor="#94A3B8"
+            android:textSize="10sp"
+            android:paddingHorizontal="4dp"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <!-- 切换窗口大小 -->
+        <TextView
+            android:id="@+id/btn_toggle_size"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="放大窗"
+            android:textColor="#94A3B8"
+            android:textSize="10sp"
+            android:paddingHorizontal="4dp"
+            android:layout_marginStart="4dp"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- 快速滚到顶部 -->
+        <TextView
+            android:id="@+id/btn_scroll_top"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="⬆ 顶部"
+            android:textColor="#38BDF8"
+            android:textSize="10sp"
+            android:paddingHorizontal="4dp"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <!-- 快速滚到底部 -->
+        <TextView
+            android:id="@+id/btn_scroll_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="⬇ 底部"
+            android:textColor="#38BDF8"
+            android:textSize="10sp"
+            android:paddingHorizontal="4dp"
+            android:layout_marginStart="4dp"
+            android:background="?android:attr/selectableItemBackground" />
+    </LinearLayout>
+
+</LinearLayout>

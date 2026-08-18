@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">悬浮提词助手</string>
+    <string name="notification_channel_name">悬浮常驻服务</string>
+    <string name="notification_channel_desc">用于保持悬浮窗常驻后台不被系统杀死</string>
+    <string name="notification_title">悬浮提词助手正在运行</string>
+    <string name="notification_content">点击可返回主界面管理提示词，悬浮窗始终保持在屏幕顶层</string>
+    <string name="btn_start">开启常驻悬浮窗</string>
+    <string name="btn_stop">关闭悬浮窗</string>
+    <string name="btn_paste">粘贴剪贴板</string>
+    <string name="btn_clear">清空内容</string>
+</resources>
